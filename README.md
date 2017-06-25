@@ -42,7 +42,7 @@ http://localhost:3000 para acessar o mastodon
 http://localhost:5601 para acessar o painel do Kibana e acompanhar os logstash(No primeiro acesso é necessario no combobox Time-field name selecionar o valor "@Timestamp")
 
 ## TO DO
- Configurar nginx
- Configurar monitoria com https://www.influxdata.com/time-series-platform/
+- Configurar nginx
+- Configurar monitoria com https://www.influxdata.com/time-series-platform/
 
  
