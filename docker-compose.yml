@@ -1,0 +1,81 @@
+#nginx:
+#build: nginx/
+#  ports:
+      #- "80:80"
+      #- "443:443"
+elasticsearch:
+  image: elasticsearch:2.4
+  command: elasticsearch -Des.network.host=0.0.0.0
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+logstash:
+  build: logstash/
+  command: logstash -f /etc/logstash/conf.d/logstash.conf
+  volumes:
+    - ./logstash/config:/etc/logstash/conf.d
+  ports:
+    - "12201:12201/udp"
+    - "12202:12202/tcp"
+  links:
+    - elasticsearch
+kibana:
+  build: kibana/
+  volumes:
+    - ./kibana/config/:/opt/kibana/config/
+  ports:
+    - "5601:5601"
+  links:
+    - elasticsearch
+postgres:
+  restart: always
+  image: postgres:alpine
+  volumes:
+     - ./postgres:/var/lib/postgresql/data
+redis:
+  restart: always
+  image: redis:alpine
+  volumes:
+    - ./redis:/data
+mastodon:
+  image: gargron/mastodon
+  restart: always
+  env_file: .env.production
+  command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  log_driver: "gelf"
+  log_opt:
+    gelf-address: "udp://localhost:12201"
+    tag: mastodon
+  ports:
+      - "3000:3000"
+  links:
+      - postgres
+      - redis
+  volumes:
+     - ./public/assets:/mastodon/public/assets
+     - ./public/packs:/mastodon/public/packs
+     - ./public/system:/mastodon/public/system
+npmmastodon:
+  image: gargron/mastodon
+  restart: always
+  env_file: .env.production
+  command: npm run start
+  log_driver: "gelf"
+  log_opt:
+    gelf-address: "udp://localhost:12201"
+    tag: mastodon_npm
+  ports:
+    - "4000:4000"
+  links:
+    - postgres
+    - redis
+sidekiq_mastodon:
+  image: gargron/mastodon
+  restart: always
+  env_file: .env.production
+  command: bundle exec sidekiq -q default -q mailers -q pull -q push
+  links:
+    - postgres
+    - redis
+  volumes:
+    - ./public/system:/mastodon/public/system
