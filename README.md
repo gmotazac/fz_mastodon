@@ -33,7 +33,9 @@ E finalmente para subir todos os componentes digite
     docker-compose up ou docker-compose up -d
 
 
-- Para cadastro no mastodon é necessário uma confirmacao via e-mail e para tal foi configurado no arquivo .env.production uma configuracao de uma conta pessoal criada no sendgrid - https://sendgrid.com. Caso deseja utilizar outro servico de SMTP é necessário alterar as chaves SMTP_SERVER,SMTP_PORT,SMTP_LOGIN,SMTP_PASSWORD e SMTP_FROM_ADDRESS com os respectivos valores.
+- Para cadastro no mastodon é necessário uma confirmacao via e-mail e para tal foi configurado no arquivo .env.production uma configuracao de uma conta pessoal criada no sendgrid - https://sendgrid.com. Enviarei o api token por e-mail e deverá ser substituido na variavel SMTP_LOGIN
+
+Caso deseja utilizar outro servico de SMTP é necessário alterar as chaves SMTP_SERVER,SMTP_PORT,SMTP_LOGIN,SMTP_PASSWORD e SMTP_FROM_ADDRESS com os respectivos valores.
 
 
 Umas vez que todos os containers estejam up voce devera acessar:
