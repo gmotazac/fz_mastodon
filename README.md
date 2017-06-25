@@ -1,6 +1,6 @@
 # fz_mastodon
 
-## Prerequisites
+## Pré Requisitos
 
 - Para essa demostração foi utilizado sistema operacional ubuntu Xenial 16.04.02:
 
