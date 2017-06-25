@@ -6,7 +6,7 @@ Para esss demostracao foi utilizado sistema operacional ubuntu 16.04.02
 "Versao do docker Docker version 17.05.0-ce, build 89658be"
 docker-compose version 1.14.0, build c7bdf9e
 
-##Siga os passos abaixo
+## Siga os passos abaixo
 
 O comando abaixo ira gerar e/ou baixar as imagens necessarias para subir todos os componentes do ambiente
     docker-compose build
@@ -41,7 +41,7 @@ Umas vez que todos os containers estejam up voce devera acessar:
 http://localhost:3000 para acessar o mastodon
 http://localhost:5601 para acessar o painel do Kibana e acompanhar os logstash(No primeiro acesso é necessario no combobox Time-field name selecionar o valor "@Timestamp")
 
-##TO DO
+## TO DO
  Configurar nginx
  Configurar monitoria com https://www.influxdata.com/time-series-platform/
 
