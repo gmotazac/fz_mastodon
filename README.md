@@ -8,12 +8,13 @@ docker-compose version 1.14.0, build c7bdf9e
 
 ## Siga os passos abaixo
 
-O comando abaixo ira gerar e/ou baixar as imagens necessarias para subir todos os componentes do ambiente
-    docker-compose build
+- O comando abaixo ira gerar e/ou baixar as imagens necessarias para subir todos os componentes do ambiente
+ 
+ docker-compose build
 
-O comando abaixo a seguir eh utilizado para gerar os secrets que deverao ser inseridos no arquivo .env.production para as chaves PAPERCLIP_SECRET, SECRET_KEY_BASE, OTP_SECRET
-(O arquivo ja contem um secret configurado para facilitar a demonstracao, mas caso deseja recriar todos os passos, digite o comando abaixo e substitua)
-    docker-compose run --rm mastodon rake secret
+- O comando abaixo a seguir eh utilizado para gerar os secrets que deverao ser inseridos no arquivo .env.production para as chaves PAPERCLIP_SECRET, SECRET_KEY_BASE, OTP_SECRET(O arquivo ja contem um secret configurado para facilitar a demonstracao, mas caso deseja recriar todos os passos, digite o comando abaixo e substitua)
+  
+  docker-compose run --rm mastodon rake secret
 
 O comando abaixo é necessário para a criacão das tabelas no banco de dados postgres
 
@@ -35,7 +36,7 @@ E finalmente para subir todos os componentes digite
 
 - Para cadastro no mastodon é necessário uma confirmacao via e-mail e para tal foi configurado no arquivo .env.production uma configuracao de uma conta pessoal criada no sendgrid - https://sendgrid.com. Enviarei o api token por e-mail e deverá ser substituido na variavel SMTP_LOGIN
 
-Caso deseja utilizar outro servico de SMTP é necessário alterar as chaves SMTP_SERVER,SMTP_PORT,SMTP_LOGIN,SMTP_PASSWORD e SMTP_FROM_ADDRESS com os respectivos valores.
+ - Caso deseja utilizar outro servico de SMTP é necessário alterar as chaves SMTP_SERVER,SMTP_PORT,SMTP_LOGIN,SMTP_PASSWORD e SMTP_FROM_ADDRESS com os respectivos valores.
 
 
 Umas vez que todos os containers estejam up voce devera acessar:
