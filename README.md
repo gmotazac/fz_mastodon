@@ -13,8 +13,8 @@
  
        docker-compose build
 
-- O comando abaixo a seguir é utilizado para gerar os secrets que deverão ser inseridos no arquivo .env.production para as chaves PAPERCLIP_SECRET, SECRET_KEY_BASE, OTP_SECRET(O arquivo já contem um secret configurado para facilitar a demonstração, mas caso deseje recriar todos os passos, digite o comando abaixo e substitua o valor nas variáveis)
-  
+- O comando abaixo a seguir é utilizado para gerar os secrets que deverão ser inseridos no arquivo .env.production para as chaves PAPERCLIP_SECRET, SECRET_KEY_BASE, OTP_SECRET com o intuito de a aplicação funcionar corretamente.
+
       docker-compose run --rm mastodon rake secret
 
 O comando abaixo é necessário para a criação das tabelas no banco de dados postgres: 
