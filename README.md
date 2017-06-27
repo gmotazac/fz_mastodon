@@ -44,6 +44,11 @@ E finalmente para subir todos os componentes digite:
 - http://localhost:3000 para acessar o mastodon
 - http://localhost:5601 para acessar o painel do Kibana e acompanhar os logstash(No primeiro acesso é necessário no combobox Time-field name selecionar o valor "@Timestamp")
  
+- Poderá também acessar
+  http://localhost (mastodon)
+ E configurando o arquivo /etc/hosts da maquina com a nos nomes Kibana e chronograf apotando para 127.0.0.1 podera acessar
+ http://kibana
+ http://chronograf
  
  - Monitoria Tick stack :
  
@@ -57,8 +62,5 @@ E finalmente para subir todos os componentes digite:
          docker-compose run kapacitor-cli
          $ kapacitor list tasks
 
-
-## TO DO
-- Configurar nginx
 
  
