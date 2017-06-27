@@ -47,8 +47,8 @@ E finalmente para subir todos os componentes digite:
 - Poderá também acessar
   http://localhost (mastodon)
  E configurando o arquivo /etc/hosts da maquina com a nos nomes Kibana e chronograf apotando para 127.0.0.1 podera acessar
- -http://kibana
- -http://chronograf
+ - http://kibana
+ - http://chronograf
  
  - Monitoria Tick stack :
  
